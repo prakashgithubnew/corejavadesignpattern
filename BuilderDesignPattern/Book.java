@@ -1,4 +1,6 @@
-import builder.pattern.Genre;
+package BuilderDesignPattern;
+
+import BuilderDesignPattern.Genre;
 import java.time.Year;
 
 public class Book {
