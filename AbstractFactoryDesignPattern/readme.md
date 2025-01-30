@@ -1,5 +1,14 @@
 ![img.png](img.png)
 
+It uses composition
+Complete Code - https://medium.com/@akshatsharma0610/abstract-factory-design-pattern-in-java-45a326c8fc9f#:~:text=The%20factory%20method%20is%20just,handle%20the%20desired%20object%20instantiation.
+
+Nice Understanding on the difference between abstract factory and factory
+https://www.linkedin.com/pulse/factory-abstract-pattern-amit-nadiger/
+
+*** Factory Class returns the Type for Abstract Factory Design Pattern
+* Factory Class returns the Object for Factory Design Pattern**
+
 **Differences between Factory and Abstract Factory**
 ====================================================
 One of the main differences between Factory and Abstract Factory patterns is the level of
@@ -18,8 +27,7 @@ but the Abstract Factory pattern is more scalable and extensible.
 The Abstract Factory pattern should be used when creating objects of related types, 
 and you want to ensure they are compatible. It is also beneficial for abstracting the 
 creation of the objects from client code, and allowing multiple families of products to 
-be switched at runtime. In Java, the javax.swing package has an interface LookAndFeel that 
-defines methods to create UI components, and the java.awt.Toolkit class has an abstract 
-method createDesktopPeer() . Additionally, the javax.xml.parsers.DocumentBuilderFactory 
-class has a static method newInstance() . 
-All these examples demonstrate the usefulness of the Abstract Factory pattern in Java.
+be switched at runtime. 
+
+When you want to create families of related objects, such as different types of products that 
+need to work together.
