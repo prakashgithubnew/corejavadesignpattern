@@ -245,6 +245,8 @@ class Ostrich extends NonFlyingBird {
     @Override
     public void doSomething() { // some implementation }
 }
+Good Example
+https://www.youtube.com/watch?v=129QkkXUHeQ
 
 **Interface Segregation Principle**
 -----------------------------------
