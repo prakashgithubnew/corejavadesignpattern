@@ -271,3 +271,9 @@ class Square implements IShapeAreaCalculator{
 
 The issue with this is that if a Square shape implements this, 
 then it is forced to implement the calculateVolume() method, which it does not need.
+
+**Dependency Inversion Principle**
+----------------------------------
+In the dependency inversion principle, high-level modules should not depend on low-level modules. 
+In other words, you must follow abstraction and ensure loose coupling.
+

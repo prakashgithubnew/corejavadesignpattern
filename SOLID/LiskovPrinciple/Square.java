@@ -1,6 +1,6 @@
 package SOLID.LiskovPrinciple;
 
-public class Pegion implements IInterface{
+public class Square implements IInterface{
 
     @Override
     public void fly() {
