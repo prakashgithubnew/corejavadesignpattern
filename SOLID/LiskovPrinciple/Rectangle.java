@@ -1,8 +1,8 @@
 package SOLID.LiskovPrinciple;
 
-public class Rectangle implements IInterface{
+public class Hen implements IInterface{
     @Override
-    public int area(int w, int h) {
-        return w*h;
+    public void fly() {
+        //No implentation of flying as Hen cannot fly
     }
 }
