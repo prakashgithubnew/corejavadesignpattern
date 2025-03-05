@@ -115,14 +115,14 @@ classes should be open for extension not for modification
 Before
 
     public class DiscountCalculator {
-    public double calculateDiscount(String customerType, double amount) {
-    if (customerType.equals("Regular")) {
-    return amount * 0.1;
-    } else if (customerType.equals("Premium")) {
-    return amount * 0.2;
-    }
-    return 0;
-    }
+        public double calculateDiscount(String customerType, double amount) {
+            if (customerType.equals("Regular")) {
+                return amount * 0.1;
+            } else if (customerType.equals("Premium")) {
+                return amount * 0.2;
+            }
+                return 0;
+        }
 
     public static void main(String[] args) {
         DiscountCalculator calculator = new DiscountCalculator();
@@ -184,21 +184,17 @@ public class Main {
     }
 }
 
+in this if we need to introduce any other discount lets say LabourDiscount then we dont need to change
+DiscountCalculator class , just add that new class and then pass that class reference to DiscountCalculator
+and it will calculate the same for you.
+
 
 **Liskov’s Substitution Principle (LSP)**
 -----------------------------------------
-It states that if code works with a given class, it must continue to work correctly with 
-subclasses of that base class.
+This principle states that “Derived or child classes must be substitutable for their base or parent 
+classes”. In other words, if class A is a subtype of class B, then we should be able to replace B with 
+A without interrupting the behavior of the program.
 
-means for example
-Class I
-Class C1 extends I 
-Class C2 extends I
-
-if we do
-I i = new C1();
-then there should not be any impact using below(replacing C1 by C2)
-I i = new C2();
 
 
 Example ----
@@ -276,4 +272,123 @@ then it is forced to implement the calculateVolume() method, which it does not n
 ----------------------------------
 In the dependency inversion principle, high-level modules should not depend on low-level modules. 
 In other words, you must follow abstraction and ensure loose coupling.
+Consider an example below
+
+    public class DebitCard{
+    public void doTransaction(int amount){
+    System.out.println("tx done with DebitCard");
+    }
+    }
+
+    public class CreditCard{
+    public void doTransaction(int amount){
+    System.out.println("tx done with CreditCard");
+    }
+    }
+
+
+    public class ShoppingMall {
+        private DebitCard debitCard;
+
+        public ShoppingMall(DebitCard debitCard) {
+        this.debitCard = debitCard;
+        }
+
+        public void doPayment(Object order, int amount){              
+            debitCard.doTransaction(amount);
+        }
+    
+    public static void main(String[] args) {
+        DebitCard debitCard=new DebitCard();
+        ShoppingMall shoppingMall=new ShoppingMall(debitCard);
+        shoppingMall.doPayment("some order",5000);
+      }
+    }
+
+if you observe this is wrong design of coding , now ShoppingMall class tightly coupled with DebitCard
+
+Now there is some error in your debit card and user want to go with Credit card then this won’t be 
+possible because ShoppingMall is tightly couple with Debit Card
+
+Improved Solution would be
+
+    public interface BankCard {
+        public void doTransaction(int amount);
+    }
+
+    public class CreditCard implements BankCard{
+        public void doTransaction(int amount){            
+            System.out.println("tx done with CreditCard");
+        }
+    }
+
+    public class DebitCard implements BankCard{
+        public void doTransaction(int amount){
+            System.out.println("tx done with DebitCard");
+        }
+    }
+
+    public class ShoppingMall {
+        private BankCard bankCard;
+            public ShoppingMall(BankCard bankCard) {
+                this.bankCard = bankCard;
+            }
+            public void doPayment(Object order, int amount){
+                bankCard.doTransaction(amount);
+            }
+        public static void main(String[] args) {
+            BankCard bankCard=new CreditCard();
+            ShoppingMall shoppingMall1=new ShoppingMall(bankCard);
+            shoppingMall1.doPayment("do some order", 10000);
+        }
+    }
+
+
+Now if you observe shopping mall is loosely coupled with BankCard , any type of card process the payment 
+without any impact . which proofs DIP
+
+    **MCQs**
+
+**Q 1** - Which of the following pattern is used where we need to treat a group of objects in similar way 
+as a single object?
+
+Composite Design Pattern
+
+Q 2  - What is Observer Pattern?
+This pattern is used when there is one-to-many relationship between objects such as if one object is 
+modified, its dependent objects are to be notified automatically.
+
+Q 3 - Integer.valueOf is an example of Factory pattern?
+
+Yes
+
+Q 4  - What is GoF design Pattern in Java?
+The Gang of Four Design Patterns is a set of solutions to common problems we encounter in software design and development.
+These patterns categorize into three main groups:
+
+Creational Patterns
+Structural Patterns
+Behavioral Patterns
+
+Q 5  - Builder Design Pattern
+It's a Creational design Pattern.
+
+
+Q 6  - What is chunky and chatty principle in design
+"chunky" refers to a design where a single request returns a large amount of data, minimizing the 
+number of network calls needed, while "chatty" describes a design that requires multiple small requests 
+to retrieve the same amount of data, resulting in more network communication but potentially greater 
+flexibility for the user; essentially, "chunky" means sending large data chunks in few requests, 
+while "chatty" means sending smaller data pieces in many requests. 
+
+which one to use or any preference - chunky or chatty
+-----------------------------------------------------
+
+A "chunky" design can be more efficient for applications with high bandwidth needs as it reduces network 
+overhead, while a "chatty" design might be better for situations where only small amounts of data are 
+required frequently. 
+
+A "chunky" API might be less flexible as it returns more data than a user always needs, while a 
+"chatty" API gives users more control over the data retrieved but requires more network calls. 
+
 
