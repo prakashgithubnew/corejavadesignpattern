@@ -7,6 +7,8 @@
 * Not thread safe
 * HashCode for Null is 0
   
+For thread safety you can use concurrent hashmap
+
   **Time and Space Complexity**
   =============================
   
@@ -51,6 +53,14 @@ node hash map
 
 
 **How Hash Map works in Java**
+1. Create hashcode for the key lets say 118
+2. Calculate index using hashcode and n-1 formulae - lets say 6
+3. if at the index any existing value is found then use hashcode and equals if both keys are same?
+4. If keys are the same, replace the value with the current value else use the same index and store 2 values 
+    like below 
+
+![img_3.png](img_3.png)
+
 
 **Hashing:**
 When you add a key-value pair to the HashMap using the put method, the HashMap class computes the hash code of the key. 

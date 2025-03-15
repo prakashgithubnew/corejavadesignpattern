@@ -191,9 +191,8 @@ and it will calculate the same for you.
 
 **Liskov’s Substitution Principle (LSP)**
 -----------------------------------------
-This principle states that “Derived or child classes must be substitutable for their base or parent 
-classes”. In other words, if class A is a subtype of class B, then we should be able to replace B with 
-A without interrupting the behavior of the program.
+This principle states that objects of a superclass should be able to be replaced with objects of a 
+subclass without affecting the correctness of the program
 
 
 
@@ -241,6 +240,20 @@ class Ostrich extends NonFlyingBird {
     @Override
     public void doSomething() { // some implementation }
 }
+
+Now in the implementation
+
+we can write
+FlyingBird fly = new Eagle(); when fly is the requirmnet
+
+or 
+
+NonFlyingBird nonFlyingBird = new Ostrich(); when non fly is the requirmeennt
+
+
+
+
+
 Good Example
 https://www.youtube.com/watch?v=129QkkXUHeQ
 
@@ -275,15 +288,15 @@ In other words, you must follow abstraction and ensure loose coupling.
 Consider an example below
 
     public class DebitCard{
-    public void doTransaction(int amount){
-    System.out.println("tx done with DebitCard");
-    }
+        public void doTransaction(int amount){
+            System.out.println("tx done with DebitCard");
+        }
     }
 
     public class CreditCard{
-    public void doTransaction(int amount){
-    System.out.println("tx done with CreditCard");
-    }
+        public void doTransaction(int amount){
+            System.out.println("tx done with CreditCard");
+        }
     }
 
 
