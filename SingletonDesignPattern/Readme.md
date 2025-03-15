@@ -12,4 +12,5 @@ making sure it creates not more than one instance.
 **How to Identify 2 instances are different to each Other**
 ------------------------------------------------------------
 
-Hashcode for each instances will be different
+Hashcode for each instances will be different.
+

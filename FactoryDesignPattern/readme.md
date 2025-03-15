@@ -15,7 +15,6 @@ https://www.linkedin.com/pulse/factory-abstract-pattern-amit-nadiger/
                                   as new products can be added without modifying existing client code.
 * Encapsulation of Object Creation - Object Creation is in factory only so encapsulated from everywhere.
 
-
 * Factory Class returns the Type for Abstract Factory Design Pattern
 * Factory Class returns the Object for Factory Design Pattern
 
@@ -37,4 +36,5 @@ but the Abstract Factory pattern is more scalable and extensible.
 The Factory pattern should be used when you only need to create objects of a single type and wish
 to conceal the logic of their creation from the client code. 
 
-When you want to create objects of a single type, but you want to decouple the client code from the specific implementation details of the object creation process.
+When you want to create objects of a single type, but you want to decouple the client code from the specific implementation details of 
+the object creation process.
