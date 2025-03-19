@@ -244,11 +244,11 @@ class Ostrich extends NonFlyingBird {
 Now in the implementation
 
 we can write
-FlyingBird fly = new Eagle(); when fly is the requirmnet
+FlyingBird fly = new Eagle(); when fly is the requirement
 
 or 
 
-NonFlyingBird nonFlyingBird = new Ostrich(); when non fly is the requirmeennt
+NonFlyingBird nonFlyingBird = new Ostrich(); //when non-fly is the requirement
 
 
 
