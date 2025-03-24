@@ -38,3 +38,26 @@ Singleton design pattern is used in core Java classes also (for example, java.la
 2. use synchronized block instead of synchronized method to avoid any performance issues.
 3. use enum to avoid multiple instance creation by reflection APIs.
 4. If needed to serialize the singleton pattern then deserialize will create 2 instances, to avoid this override readResolve method.
+
+singleton design Pattern example
+
+
+class Singleton {
+private static volatile Singleton obj = null;
+private Singleton() {}
+
+    public static Singleton getInstance()
+    {
+        if (obj == null) {
+            // To make thread safe
+            synchronized (Singleton.class)
+            {
+                // check again as multiple threads
+                // can reach above step
+                if (obj == null)
+                    obj = new Singleton();
+            }
+        }
+        return obj;
+    }
+}

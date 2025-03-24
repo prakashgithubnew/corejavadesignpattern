@@ -9,7 +9,13 @@ Can constructor be inherited?
 
 Difference Between Instance Variable and Class Variable
 
-    Instance variable defined outside method in class where as class variables are also defined outside method but are declared as static
+    Instance variable defined outside method in class where as class variables are also defined 
+    outside method but are declared as static
+
+Can we define any static variable inside method?
+
+    No
+
 what is the default value of Local Variable
 
     Local Variable are having any default value.
