@@ -71,3 +71,6 @@ Hashing is a technique of generating the hashcode of the object. To achieve this
 method of the object class returns the memory reference of an object in integer form. This hash code determines the index within an 
 array called the bucket, where the value will be stored. In the above example hascode for book was “B”.
 
+good link to understand hashmap
+https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
+
