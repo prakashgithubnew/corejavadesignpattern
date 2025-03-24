@@ -1,4 +1,4 @@
-**SOLID Principles**
+⁸**SOLID Principles**
 ====================
 
 * Single Responsibility Principle (SRP)
@@ -198,64 +198,12 @@ subclass without affecting the correctness of the program
 
 Example ----
 
-abstract class Bird{
-
-    abstract void fly();
-}
-
-class Eagle extends Bird {
-
-    @Override
-    public void fly() { // some implementation }
-}
-
-class Ostrich extends Bird {
-
-    @Override
-    public void fly() { // dummy implementation }
-}
-
-In the above example, the Eagle class and the Ostrich class both extend the Bird class and 
-override the fly() method. However, the Ostrich class is forced to provide a dummy 
-implementation because it cannot fly, and therefore it does not behave the same way 
-if we replace the Bird class object with it.
-
-The correct Implementation would be
------------------------------------
-
-abstract class FlyingBird{
-    abstract void fly();
-}
-
-abstract class NonFlyingBird{
-    abstract void doSomething();
-}
-
-class Eagle extends FlyingBird {
-    @Override
-    public void fly() { // some implementation }
-}
-
-class Ostrich extends NonFlyingBird {
-    @Override
-    public void doSomething() { // some implementation }
-}
-
-Now in the implementation
-
-we can write
-FlyingBird fly = new Eagle(); when fly is the requirement
-
-or 
-
-NonFlyingBird nonFlyingBird = new Ostrich(); //when non-fly is the requirement
+https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://tusharghosh09006.medium.com/liskov-substitution-principle-lsp-744eceb29e8&ved=2ahUKEwjVspyS3aOMAxV5S0EAHbLaAXQQjjh6BAgXEAE&usg=AOvVaw0rh7qsub4keA-dMdllA1Ck
 
 
 
 
 
-Good Example
-https://www.youtube.com/watch?v=129QkkXUHeQ
 
 **Interface Segregation Principle**
 -----------------------------------
