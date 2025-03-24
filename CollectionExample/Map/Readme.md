@@ -30,10 +30,12 @@ Map m = Collections.synchronizedMap(new HashMap(...));
 **Fail Safe and Fail Fast In Iterator**
 
 Fail Safe - During iteration modify the keys values will not throw exception.Using **Concurrent hashmap** and  **CopyOnWriteArrayList** this can be achieved.
+
 Fail Fast - During iteration modify the keys values will throw exception.
 
 
 **Internal Structure of HashMap**
+internally ashman uses array of buckets and indexing.
 Internally HashMap contains an array of Node and a node is represented as a class that contains 4 fields:
 
 int hash
