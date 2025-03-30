@@ -61,3 +61,47 @@ private Singleton() {}
         return obj;
     }
 }
+
+
+
+**why double check is needed in case of singleton designPattern**
+------------------------------------------------------------------
+
+      Refer the program below
+
+      public class SingletonDoubleChecked {
+      private static volatile SingletonDoubleChecked instance;
+      
+          private SingletonDoubleChecked() { }
+      
+          public static SingletonDoubleChecked getInstance() {
+              if (instance == null) {  // First Check
+                  synchronized (SingletonDoubleChecked.class) {
+                      if (instance == null) {  // Second Check
+                          instance = new SingletonDoubleChecked();
+                      }
+                  }
+              }
+              return instance;
+          }
+      }
+
+
+      First Check (if (instance == null))
+      
+         Prevents unnecessary synchronization after the instance is initialized.
+      
+      Synchronized Block (synchronized (SingletonDoubleChecked.class))
+      
+         Ensures only one thread creates the instance.
+      
+      Second Check (if (instance == null))
+      
+         Ensures that no other thread has created an instance while waiting for synchronization.
+
+
+**Where to use singleton design Pattern**
+-----------------------------------------
+
+Database connection pooling where unnecessary connections are created and it 
+leads to lot of memory and impact performance as well. 

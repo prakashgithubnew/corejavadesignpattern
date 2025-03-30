@@ -31,3 +31,11 @@ be switched at runtime.
 
 When you want to create families of related objects, such as different types of products that 
 need to work together.
+
+**What need to be taken care**
+---------------------------------
+
+Client dont need to know which class is going to serve the purpose.
+No need to chnage the implementation of existing class.If new car is introduced add one more class and 
+use the existing interface of car and carfactory.
+
