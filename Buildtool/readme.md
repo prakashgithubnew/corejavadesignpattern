@@ -30,7 +30,6 @@ This remarkable difference is thanks to the following Gradle features:
     Maven and Gradle support parallel build, which improves performance by doing work on multiple threads at the same time. 
     These features are by default disabled, so were not used in the above performance testing.
 
-
 **Maven vs. Gradle usability comparison**
 -----------------------------------------
 
